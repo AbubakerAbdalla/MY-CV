@@ -33,7 +33,7 @@ export function Certifications() {
               className="group relative h-full bg-zinc-900/40 backdrop-blur-md rounded-3xl p-8 border border-white/5 hover:border-orange-500/30 transition-colors overflow-hidden flex flex-col justify-between"
             >
               {/* Background Glow */}
-              <div className="absolute -inset-24 bg-gradient-to-br from-orange-500/10 to-red-500/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              <div className="absolute -inset-8 bg-gradient-to-br from-orange-500/10 to-red-500/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
               
               <div className="relative z-10 flex items-start justify-between mb-8">
                 <div className="p-3 bg-white/5 rounded-2xl group-hover:bg-orange-500/20 group-hover:text-orange-500 transition-colors duration-300 text-zinc-400">

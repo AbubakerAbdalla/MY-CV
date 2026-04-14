@@ -6,7 +6,7 @@ import { useApp } from "@/providers/AppContext";
 
 export function Projects() {
   const containerRef = useRef<HTMLElement>(null);
-  const { dict, playHover } = useApp();
+  const { dict, lang, playHover } = useApp();
   const [activeProject, setActiveProject] = useState<number | null>(null);
   
   const { scrollYProgress } = useScroll({
@@ -14,7 +14,11 @@ export function Projects() {
     offset: ["start end", "end start"]
   });
 
-  const headingX = useTransform(scrollYProgress, [0, 1], [-200, 200]);
+  const headingX = useTransform(
+    scrollYProgress, 
+    [0, 1], 
+    lang === 'ar' ? [200, -200] : [-200, 200]
+  );
 
   return (
     <section ref={containerRef} className="relative z-20 w-full min-h-screen bg-transparent px-4 py-32 md:px-24 overflow-hidden">

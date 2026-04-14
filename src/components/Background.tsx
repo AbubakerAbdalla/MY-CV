@@ -1,9 +1,10 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useApp } from "@/providers/AppContext";
 
 export function Background() {
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress, lang } = useApp();
   
   // Parallax calculations for abstract glowing orbs moving in different directions
   const y1 = useTransform(scrollYProgress, [0, 1], [0, 1200]);
@@ -24,14 +25,15 @@ export function Background() {
       {/* Orb 1: Emerald glow */}
       <motion.div 
         style={{ y: y1, rotate: rotate1 }}
-        className="absolute top-[-10%] left-[-20%] w-[60vw] h-[60vw] bg-orange-600/10 rounded-[40%_60%_70%_30%] blur-[120px] transition-transform duration-300"
+        className="absolute top-[-10%] ltr:left-[-20%] rtl:right-[-20%] w-[60vw] h-[60vw] bg-orange-600/10 rounded-[40%_60%_70%_30%] blur-[120px] transition-transform duration-300"
       />
       
       {/* Orb 2: Deep blue glow */}
       <motion.div 
         style={{ y: y2, rotate: rotate2 }}
-        className="absolute top-[80%] right-[-10%] w-[70vw] h-[70vw] bg-blue-600/10 rounded-[60%_40%_30%_70%] blur-[150px] transition-transform duration-300"
+        className="absolute top-[80%] ltr:right-[-10%] rtl:left-[-10%] w-[70vw] h-[70vw] bg-blue-600/10 rounded-[60%_40%_30%_70%] blur-[150px] transition-transform duration-300"
       />
+
 
       {/* Orb 3: Teal/White ambient center glow */}
       <motion.div 
