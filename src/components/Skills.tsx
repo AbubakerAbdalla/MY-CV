@@ -59,8 +59,8 @@ export function Skills() {
               <div className="flex flex-wrap gap-3 relative z-10">
                 {cat.skills.map((skill, j) => (
                   <motion.span 
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 + (j * 0.05) }}
                     key={j} 

@@ -12,7 +12,7 @@ export function About() {
   const data = dict.about;
 
   return (
-    <section ref={containerRef} className="relative z-20 w-full min-h-screen flex items-center bg-transparent px-4 py-32 md:px-24" dir={isAr ? "rtl" : "ltr"}>
+    <section ref={containerRef} className="relative z-20 w-full min-h-screen flex items-center bg-transparent px-4 py-32 md:px-24 overflow-hidden" dir={isAr ? "rtl" : "ltr"}>
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent"></div>
 
       <div className="max-w-7xl mx-auto relative z-10 w-full">
@@ -20,8 +20,8 @@ export function About() {
           
           {/* Text Content */}
           <motion.div 
-            initial={{ opacity: 0, x: isAr ? 30 : -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-8"

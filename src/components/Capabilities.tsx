@@ -12,7 +12,7 @@ export default function Capabilities() {
   const data = t.capabilities;
 
   return (
-    <section className="relative z-20 w-full bg-transparent px-4 py-32 md:px-24" dir={isAr ? "rtl" : "ltr"}>
+    <section className="relative z-20 w-full bg-transparent px-4 py-32 md:px-24 overflow-hidden" dir={isAr ? "rtl" : "ltr"}>
       {/* Animated divider matching other sections */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent"></div>
       
@@ -21,8 +21,8 @@ export default function Capabilities() {
           
           <div className="lg:col-span-4">
             <motion.div
-              initial={{ opacity: 0, x: isAr ? 20 : -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="sticky top-32"
             >

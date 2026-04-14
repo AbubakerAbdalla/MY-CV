@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useApp } from "@/providers/AppContext";
 
@@ -14,10 +14,16 @@ export function Projects() {
     offset: ["start end", "end start"]
   });
 
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 1024);
+  }, []);
+
   const headingX = useTransform(
     scrollYProgress, 
     [0, 1], 
-    lang === 'ar' ? [200, -200] : [-200, 200]
+    lang === 'ar' ? [100, -100] : [-100, 100]
   );
 
   return (
@@ -26,7 +32,7 @@ export function Projects() {
       
       <div className="max-w-7xl mx-auto relative">
         <motion.h2 
-          style={{ x: headingX }}
+          style={{ x: isMobile ? 0 : headingX }}
           className="text-6xl md:text-[8rem] whitespace-nowrap font-bold mb-24 tracking-tighter text-white/5 uppercase select-none ltr:text-left rtl:text-right"
         >
           {dict.projects.title}

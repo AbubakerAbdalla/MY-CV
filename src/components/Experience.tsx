@@ -17,14 +17,14 @@ export function Experience() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section ref={containerRef} className="relative z-20 w-full bg-transparent px-4 py-32 md:px-24">
+    <section ref={containerRef} className="relative z-20 w-full bg-transparent px-4 py-32 md:px-24 overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent"></div>
       
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-24 gap-8">
           <motion.h2 
-            initial={{ opacity: 0, x: lang === 'ar' ? 50 : -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-5xl md:text-8xl font-bold tracking-tighter text-white opacity-90"
           >

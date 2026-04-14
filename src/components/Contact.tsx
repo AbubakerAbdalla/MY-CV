@@ -18,7 +18,7 @@ export function Contact() {
   const cardScale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
 
   return (
-    <section ref={containerRef} id="contact" className="relative z-20 w-full min-h-screen bg-transparent flex flex-col justify-center px-4 py-32 md:px-24 pb-48">
+    <section ref={containerRef} id="contact" className="relative z-20 w-full min-h-screen bg-transparent flex flex-col justify-center px-4 py-32 md:px-24 pb-48 overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
       
       <div className="max-w-6xl mx-auto w-full">
@@ -43,15 +43,15 @@ export function Contact() {
               rel="noreferrer"
               onMouseEnter={playHover}
               onClick={playClick}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               className="group w-full relative h-[400px] rounded-[2.5rem] overflow-hidden border border-white/10 bg-zinc-900/50 backdrop-blur-md p-10 flex flex-col justify-between"
             >
               <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute -inset-10 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0"></div>
+              <div className="absolute inset-0 md:-inset-10 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0"></div>
               
               <div className="relative z-10 p-2">
                 <svg className="w-14 h-14 text-zinc-500 group-hover:text-[#0077B5] transition-colors duration-500 mb-8 drop-shadow-md" fill="currentColor" viewBox="0 0 24 24">
@@ -74,8 +74,8 @@ export function Contact() {
               href="mailto:abubaker.wp@gmail.com"
               onMouseEnter={playHover}
               onClick={playClick}
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
