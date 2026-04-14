@@ -41,7 +41,7 @@ export function Overlay() {
 
       <motion.div
         style={{ y: y2, opacity: opacity2 }}
-        className="absolute top-1/2 ltr:left-[5%] md:ltr:left-[10%] rtl:right-[5%] md:rtl:right-[10%] max-w-2xl px-4"
+        className="absolute top-[60%] md:top-1/2 ltr:left-[5%] md:ltr:left-[10%] rtl:right-[5%] md:rtl:right-[10%] max-w-2xl px-4"
       >
         <h2 className="text-3xl md:text-7xl font-bold tracking-tight text-white mix-blend-difference leading-tight">
           {renderHighlighted(dict.overlay.line2)}
