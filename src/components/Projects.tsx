@@ -1,12 +1,13 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useApp } from "@/providers/AppContext";
 
 export function Projects() {
   const containerRef = useRef<HTMLElement>(null);
   const { dict, playHover } = useApp();
+  const [activeProject, setActiveProject] = useState<number | null>(null);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -30,7 +31,12 @@ export function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 relative -mt-32">
           {dict.projects.items.map((p, i) => (
             <motion.div 
-              onMouseEnter={playHover}
+              onMouseEnter={() => {
+                playHover();
+                setActiveProject(i);
+              }}
+              onMouseLeave={() => setActiveProject(null)}
+              onClick={() => setActiveProject(activeProject === i ? null : i)}
               initial={{ opacity: 0, y: 100, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -44,23 +50,24 @@ export function Projects() {
                 <img 
                   src={p.image} 
                   alt={p.title} 
-                  className="absolute inset-0 w-full h-full object-cover z-0 opacity-40 group-hover:opacity-60 transition-opacity duration-700"
+                  className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${activeProject === i ? 'opacity-60' : 'opacity-40 group-hover:opacity-60'}`}
                 />
               )}
               
-              <div className="relative z-10 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+              <div className={`relative z-10 transition-transform duration-500 ${activeProject === i ? 'translate-y-0' : 'translate-y-6 group-hover:translate-y-0'}`}>
                 <p className="text-orange-400 font-mono text-sm mb-3 opacity-80">{p.tech}</p>
                 <h3 className="text-4xl font-bold text-white mb-4">{p.title}</h3>
-                <p className="text-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                <p className={`text-zinc-400 transition-opacity duration-500 delay-100 ${activeProject === i ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
                   {p.desc}
                 </p>
               </div>
               
-              <div className="absolute -inset-1 opacity-0 group-hover:opacity-20 transition-opacity duration-700 bg-gradient-to-r from-white to-orange-500 blur-3xl -z-10 group-hover:-z-10 rounded-[3rem] pointer-events-none"></div>
+              <div className={`absolute -inset-1 transition-opacity duration-700 bg-gradient-to-r from-white to-orange-500 blur-3xl -z-10 rounded-[3rem] pointer-events-none ${activeProject === i ? 'opacity-20' : 'opacity-0 group-hover:opacity-20'}`}></div>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
+
   );
 }

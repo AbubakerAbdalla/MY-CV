@@ -10,8 +10,8 @@ export function Overlay() {
   const y1 = useTransform(scrollYProgress, [0, 0.1], [0, 100]);
   const opacity1 = useTransform(scrollYProgress, [0, 0.1, 1], [1, 0, 0]); // Hard lock at 0 later
 
-  const y2 = useTransform(scrollYProgress, [0.1, 0.2, 0.35], [100, 0, -100]);
-  const opacity2 = useTransform(scrollYProgress, [0.1, 0.2, 0.35, 1], [0, 1, 0, 0]); // safely clamped early
+  const y2 = useTransform(scrollYProgress, [0.1, 0.15, 0.25], [100, 0, -100]);
+  const opacity2 = useTransform(scrollYProgress, [0.1, 0.15, 0.25], [0, 1, 0]);
 
   // Highlight Last Word helper
   const renderHighlighted = (sentence: string) => {
@@ -29,25 +29,26 @@ export function Overlay() {
       
       <motion.div
         style={{ y: y1, opacity: opacity1 }}
-        className="absolute top-1/3 w-full text-center"
+        className="absolute top-[25%] md:top-1/3 w-full text-center"
       >
-        <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-white mix-blend-difference">
+        <h1 className="text-4xl md:text-8xl font-bold tracking-tighter text-white mix-blend-difference">
           {dict.overlay.name}<span className="text-orange-500">.</span>
         </h1>
-        <p className="mt-4 text-xl md:text-2xl font-medium tracking-wide text-zinc-300">
+        <p className="mt-4 text-lg md:text-2xl font-medium tracking-wide text-zinc-300">
           {dict.overlay.title}
         </p>
       </motion.div>
 
       <motion.div
         style={{ y: y2, opacity: opacity2 }}
-        className="absolute top-1/2 ltr:left-[10%] rtl:right-[10%] max-w-2xl px-4"
+        className="absolute top-1/2 ltr:left-[5%] md:ltr:left-[10%] rtl:right-[5%] md:rtl:right-[10%] max-w-2xl px-4"
       >
-        <h2 className="text-4xl md:text-7xl font-bold tracking-tight text-white mix-blend-difference leading-tight">
+        <h2 className="text-3xl md:text-7xl font-bold tracking-tight text-white mix-blend-difference leading-tight">
           {renderHighlighted(dict.overlay.line2)}
         </h2>
       </motion.div>
       
     </div>
+
   );
 }
