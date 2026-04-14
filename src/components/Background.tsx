@@ -4,7 +4,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useApp } from "@/providers/AppContext";
 
 export function Background() {
-  const { scrollYProgress, lang } = useApp();
+  const { scrollYProgress } = useScroll();
+  const { lang } = useApp();
   
   // Parallax calculations for abstract glowing orbs moving in different directions
   const y1 = useTransform(scrollYProgress, [0, 1], [0, 1200]);
