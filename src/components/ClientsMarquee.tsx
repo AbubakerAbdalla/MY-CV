@@ -69,8 +69,8 @@ export function ClientsMarquee({ logos }: { logos: string[] }) {
 
   return (
     <section ref={containerRef} className="relative z-20 w-full bg-transparent py-32 overflow-hidden border-t border-white/5">
-      {/* Ambient glowing core */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-orange-500/5 blur-[150px] rounded-full pointer-events-none -z-10"></div>
+      {/* Ambient glowing core - Optimized for mobile */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-orange-500/5 blur-[80px] md:blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-24 mb-20 text-center relative z-10">
         <motion.div style={{ y: textY }}>
@@ -96,20 +96,22 @@ export function ClientsMarquee({ logos }: { logos: string[] }) {
           onMouseDown={onMouseDown}
           onMouseUp={onMouseUp}
           onMouseMove={onMouseMove}
-          className={`flex overflow-x-auto w-full py-10 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} select-none`}
+          onTouchStart={() => setIsHovered(true)}
+          onTouchEnd={() => setIsHovered(false)}
+          className={`flex overflow-x-auto w-full py-10 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} select-none transform-gpu will-change-scroll`}
           style={{ scrollBehavior: 'auto', msOverflowStyle: 'none', scrollbarWidth: 'none' }}
         >
           <div className="flex flex-row gap-8 md:gap-16 items-center px-8 md:px-16 w-max">
             {totalLogos.map((logo, idx) => (
               <div 
                 key={idx} 
-                className="group relative flex-shrink-0 w-40 h-40 md:w-60 md:h-60 flex items-center justify-center p-8 md:p-12 border border-white/5 bg-white/[0.015] backdrop-blur-md rounded-[2.5rem] transition-all duration-700 hover:bg-white/[0.9] hover:border-white/40 hover:scale-105 hover:-translate-y-2 pointer-events-none md:pointer-events-auto shadow-2xl"
+                className="group relative flex-shrink-0 w-40 h-40 md:w-60 md:h-60 flex items-center justify-center p-8 md:p-12 border border-white/5 bg-white/[0.015] backdrop-blur-md rounded-[2.5rem] transition-all duration-700 hover:bg-white/[0.9] active:bg-white/[0.9] hover:border-white/40 hover:scale-105 active:scale-105 hover:-translate-y-2 active:-translate-y-2 shadow-xl"
               >
-                {/* Default: pure white silhouette image. Hover: Card becomes white glass, image returns to original color */}
+                {/* Default: pure white silhouette image. Hover/Tap: Card becomes white glass, image returns to original color */}
                 <img
                   src={`/projects/clients/${logo}`}
                   alt={`Client Logo ${idx}`}
-                  className="w-full h-full object-contain transition-all duration-700 ease-out z-10 brightness-0 invert opacity-60 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100 pointer-events-none drop-shadow-md group-hover:drop-shadow-none"
+                  className="w-full h-full object-contain transition-all duration-700 ease-out z-10 brightness-0 invert opacity-60 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100 group-active:brightness-100 group-active:invert-0 group-active:opacity-100 pointer-events-none"
                   draggable="false"
                 />
               </div>
