@@ -13,8 +13,11 @@
 }
 
 html {
-  overflow-x: visible;
+  overflow-x: clip !important;
 }
+
+/* Prevent CSS merging during production build */
+:root { --rtl-fix: 1; }
 
 body {
   background: var(--background);
