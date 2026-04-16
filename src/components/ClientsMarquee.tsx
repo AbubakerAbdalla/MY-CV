@@ -101,7 +101,7 @@ export function ClientsMarquee({ logos }: { logos: string[] }) {
           onMouseUp={onMouseUp}
           onMouseMove={onMouseMove}
           // The CSS class 'no-scrollbar' hides the scrollbar if set in globals.css, but we will add inline style fallback
-          className={`flex overflow-x-auto w-full ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} select-none`}
+          className={`flex overflow-x-auto w-full py-12 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} select-none`}
           style={{ scrollBehavior: 'auto', msOverflowStyle: 'none', scrollbarWidth: 'none' }}
         >
           <div className="flex flex-row gap-10 md:gap-16 items-center px-8 md:px-16 w-max">
