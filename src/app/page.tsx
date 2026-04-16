@@ -12,6 +12,7 @@ import { Preloader } from "@/components/Preloader";
 import { Footer } from "@/components/Footer";
 import Capabilities from "@/components/Capabilities";
 import { About } from "@/components/About";
+import { Clients } from "@/components/Clients";
 
 export default function Home() {
   return (
@@ -40,6 +41,7 @@ export default function Home() {
       <Company />
       <Experience />
       <Projects />
+      <Clients />
       <Contact />
       <Footer />
     </main>

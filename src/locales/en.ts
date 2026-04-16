@@ -100,6 +100,10 @@ export const en = {
       }
     ]
   },
+  clients: {
+    title: "Trusted By",
+    subtitle: "Brands and startups that trust us to deliver excellence",
+  },
   company: {
     badge: "Co-Founder & Lead Developer",
     subtitle: "Providing the simplest solutions to the most complex problems.",
