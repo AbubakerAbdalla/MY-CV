@@ -19,15 +19,19 @@ export function Skills() {
   const categories = [
     {
       title: dict.skills.cat1,
-      skills: ["WordPress", "Laravel", "PHP", "HTML", "CSS", "JavaScript", "Python"]
+      skills: ["Laravel", "PHP", "Dart", "Python", "JavaScript", "HTML", "CSS", "WordPress", "Filament", "MySQL", "REST APIs"]
     },
     {
       title: dict.skills.cat2,
-      skills: ["Flutter", "Figma", "WebFlow", "Canva", "Photoshop", "FlutterFlow", "Capcut"]
+      skills: ["Flutter", "FlutterFlow", "Figma", "WebFlow", "Canva", "Photoshop", "Capcut"]
+    },
+    {
+      title: dict.skills.cat4,
+      skills: ["Docker", "CI/CD", "Linux", "Git", "Cloud", "CPanel"]
     },
     {
       title: dict.skills.cat3,
-      skills: ["Project Mgmt", "SEO", "Prompt Engineering", "Cloud", "SQL", "CPanel", "WHMCS"]
+      skills: ["Project Mgmt", "SEO", "Prompt Engineering", "SQL", "WHMCS"]
     }
   ];
 
@@ -41,7 +45,7 @@ export function Skills() {
           {dict.skills.title}
         </motion.h2>
         
-        <motion.div style={{ y: cardsY }} className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <motion.div style={{ y: cardsY }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
           {categories.map((cat, i) => (
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
@@ -49,11 +53,11 @@ export function Skills() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.15, type: "spring" }}
               key={i}
-              className="group bg-white/[0.02] border border-white/5 hover:border-orange-500/30 hover:bg-white/[0.04] transition-all duration-500 rounded-3xl p-10 backdrop-blur-md relative"
+              className="group bg-white/[0.02] border border-white/5 hover:border-orange-500/30 hover:bg-white/[0.04] transition-all duration-500 rounded-3xl p-8 lg:p-6 backdrop-blur-md relative"
             >
               <div className="absolute inset-0 bg-gradient-to-b from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl pointer-events-none"></div>
               
-              <h3 className="text-3xl font-bold text-white mb-8 bg-gradient-to-r from-white to-zinc-500 bg-clip-text text-transparent">
+              <h3 className="text-2xl lg:text-xl xl:text-2xl font-bold text-white mb-6 bg-gradient-to-r from-white to-zinc-500 bg-clip-text text-transparent">
                 {cat.title}
               </h3>
               <div className="flex flex-wrap gap-3 relative z-10">

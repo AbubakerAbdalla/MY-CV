@@ -34,7 +34,7 @@ export function Experience() {
           <Magnetic>
             <motion.a 
               href="/cv.pdf"
-              download
+              download="Abubaker_Abdalla_CV.pdf"
               onMouseEnter={playHover}
               onClick={playClick}
               initial={{ opacity: 0, scale: 0.8 }}

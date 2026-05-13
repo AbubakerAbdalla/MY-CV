@@ -24,15 +24,26 @@ export const en = {
     cat1: "Core Tech",
     cat2: "Tools & Apps",
     cat3: "Proficiency",
+    cat4: "DevOps",
   },
   experience: {
     title: "My Journey",
     cv: "Download Résumé",
     jobs: [
       {
+        role: "Full Stack Developer & DevOps Engineer",
+        company: "LoadUp Load Board, Dubai",
+        date: "Oct 2025 – Present",
+        bullets: [
+          "Building cross-platform Flutter mobile apps powered by Laravel/Filament backends and REST APIs.",
+          "Architecting MySQL databases with Eloquent ORM and shipping role-based Filament admin dashboards.",
+          "Owning DevOps end-to-end: Docker, CI/CD pipelines, server provisioning, monitoring, and incident response."
+        ]
+      },
+      {
         role: "Project Coordinator",
         company: "Cadvil Solutions, Dubai",
-        date: "Dec 2023 – Present",
+        date: "Dec 2023 – Oct 2025",
         bullets: [
           "Organizing and planning all project aspects, from initiation to delivery.",
           "Acting as client liaison, providing updates and coordinating meetings.",
